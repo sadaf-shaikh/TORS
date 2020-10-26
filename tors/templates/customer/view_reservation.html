@@ -1,0 +1,30 @@
+{% extends 'tour/index.html' %}
+    
+{% block mainblock %} 
+
+<div class="container">
+    
+    <div class="jumbotron">
+        {% if reservation %}
+            <h1 class="display-4">Hi, Thankyou for choosing TORS! </h1>
+             <p class="lead">Tour : {{ reservation.fk_tour.name }}</p>
+            <hr class="my-4">
+            <p>Description : {{ reservation.fk_tour.description }}</p>
+            <p>Tour Date : {{ reservation.tour_date }}</p>
+            <p>Status : {{ reservation.status.name }}</p>
+
+            <p class="lead">
+            {% if reservation.status.pk != 2 %}
+                <a class="btn btn-danger btn-lg" href="/cancel_reservation/{{ reservation.pk }}/" role="button">Cancel Reservation</a>
+            {% endif %}
+            </p>
+        {% else %}
+            <h1>Sorry no data found for selected tour</h1>
+        {% endif %}
+    </div>
+
+    
+</div>
+
+
+{% endblock %} 

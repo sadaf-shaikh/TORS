@@ -1,0 +1,43 @@
+{% extends 'tour/index.html' %}
+    
+{% block mainblock %} 
+
+<div class="container">
+    <div class="jumbotron" style="text-align: center;">
+        <h4>List of all tours with Us!</h4>
+    </div>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>Tour Name</th>
+            <th>Details</th>
+            <th>Tour Date</th>
+            <th>Tour Status</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% if alltours %}
+                {% for eachtour in alltours %}
+                    <tr>
+                        <th scope="row">{{ eachtour.fk_tour.name }}</th>
+                        <td>{{ eachtour.fk_tour.description }}</td>
+                        <td>{{ eachtour.tour_date }}</td>
+                        <td>{{ eachtour.status.name }}</td>
+                        <td><a href="/view_reservation/{{ eachtour.pk }}/" class="btn btn-info">Info</a</td>
+                        <td>
+                            {% if eachtour.status.pk != 2 %}
+                            <a href="/cancel_reservation/{{ eachtour.pk  }}/" type="button" class="btn btn-danger">Cancel Reservation</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+         
+          
+        </tbody>
+      </table>
+</div>
+
+{% endblock %} 

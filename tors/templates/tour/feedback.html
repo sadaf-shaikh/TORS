@@ -1,0 +1,33 @@
+{% extends 'tour/index.html' %}
+    
+{% block mainblock %} 
+
+<div class="container">
+    <div  style="text-align: center;">      
+        <p>
+            <h5>Your Feedback Matters! </h5> 
+        </p>  
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Full Name</label>
+            <input type="text" class="form-control" name="name"  placeholder="Full Name" required="true">
+        </div>      
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" required="true">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Message</label>
+            <textarea name="message" class="form-control" id="" cols="30" rows="6" required="true" placeholder="Message"></textarea>
+            
+        </div>
+        <input type="submit" value="Submit" class="btn btn-success btn-lg" formaction="/feedback/">
+        <a href="/">Cancel</a>
+      </form>
+
+   
+</div>
+
+{% endblock %} 

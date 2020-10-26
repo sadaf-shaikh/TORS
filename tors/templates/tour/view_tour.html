@@ -1,0 +1,26 @@
+{% extends 'tour/index.html' %}
+    
+{% block mainblock %} 
+
+<div class="container">
+    
+    <div class="jumbotron">
+        {% if tours %}
+            <h1 class="display-4">Hi, Thankyou for choosing TORS! </h1>
+            <p class="lead">Tour : {{ tours.name }}</p>
+            <hr class="my-4">
+            <p>{{ tours.description }}</p>
+            <p class="lead">
+            <a class="btn btn-success btn-lg" href="/reserve/{{ tours.pk }}" role="button">Make Reservation</a>
+            <a href="/">Cancel</a>
+            </p>
+        {% else %}
+            <h1>Sorry no data found for selected tour</h1>
+        {% endif %}
+    </div>
+
+    
+</div>
+
+
+{% endblock %} 

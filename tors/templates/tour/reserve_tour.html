@@ -1,0 +1,40 @@
+{% extends 'tour/index.html' %}
+    
+{% block mainblock %} 
+
+<div class="container">
+    <div class="jumbotron">
+        {% if tours %}
+            <h1 class="display-4">Hi, Thankyou for choosing TORS! </h1>
+            
+        {% else %}
+            <h1>Sorry no data found for selected tour</h1>
+        {% endif %}
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Full Name</label>
+            <input type="text" class="form-control" name="name"  placeholder="Full Name" required="true">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Phone</label>
+            <input type="number" class="form-control" name="phone" required="true" placeholder="Phone Number" min="5999999999" max="9999999999">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" required="true">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Tour Date</label>
+            <input type="date" class="form-control" name="date"  placeholder="Date" required="true">
+    
+        </div>
+        <input type="submit" value="Make Reservation" class="btn btn-success btn-lg" formaction="/reserve/{{ tours.pk }}/">
+        <a href="/">Cancel</a>
+      </form>
+
+   
+</div>
+
+{% endblock %} 

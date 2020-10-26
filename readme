@@ -1,0 +1,43 @@
+To run this project:
+
+Step 1: create a virtual venv
+
+>>> virtualenv venv
+
+Then activate venv
+>>> cmd
+>>> cd venv
+>>> cd Scripts
+>>> activate
+
+Then cd back to project directory
+
+Step 2: run pip install django
+
+Step 3: run migrations
+
+>>> python manage.py makemigrations
+>>> python manage.py migrate
+
+Step 4: enter value for status
+
+>>> python manage.py shell
+>>> a = status(name = 'Confirm')
+>>> a.save()
+>>> b = status(name = 'Cancel')
+>>> b.save()
+
+[if you miss this step you will get error in making reservations]
+
+Step 5: Create superadmin
+
+>>> python manage.py createsuperadmin
+
+and then create group for employees,
+and create as many tours as needed.
+
+Step 6: run the project locally,
+
+>>> python manage.py runserver
+
+
